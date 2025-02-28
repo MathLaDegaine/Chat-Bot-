@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Français - Exercices Scolaires</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1 @click="changePageAccueil">Exercices Scolaires</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="maths.html">Mathématiques</a></li>
+                    <li class="active"><a href="francais.html">Français</a></li>
+                    <li><a href="histoiregeo.html">Histoire-Géo</a></li>
+                    <li><a href="anglais.html">Anglais</a></li>
+                    <li><a href="science.html">Science</a></li>
+                    <li class="profil"><a href="profil.html">Profil</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div id="francais">
+                <h2>Compréhension de Texte Littéraire</h2>
+                <p>Analysez le passage suivant extrait d'une œuvre célèbre et répondez aux questions.</p>
+                
+                <h3>Extrait de "Le Petit Prince" - Antoine de Saint-Exupéry</h3>
+                <blockquote>
+                    "On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux."
+                </blockquote>
+                
+                <h3>Questions</h3>
+                <p>1. Que signifie cette phrase selon vous ?</p>
+                <textarea v-model="userAnswer1" placeholder="Votre réponse"></textarea>
+                
+                <p>2. Comment cette citation s'applique-t-elle dans la vie de tous les jours ?</p>
+                <textarea v-model="userAnswer2" placeholder="Votre réponse"></textarea>
+                
+                <button @click="submitAnswers">Soumettre</button>
+                <p v-if="feedback" class="feedback">{{ feedback }}</p>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

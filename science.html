@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices Scolaires</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1 @click="changePageAccueil">Exercices Scolaires</h1>
+            <nav>
+                <ul>
+                    <li v-for="page in pages" :key="page.name" :class="{ 'profil': page.name === 'Profil' }">
+                        <a href="#" @click.prevent="changePage(page)" 
+                           @mouseover="hoverMenu = page.name" 
+                           @mouseleave="hoverMenu = ''" 
+                           :class="{ active: currentPage === page.name, hover: hoverMenu === page.name }">
+                           {{ page.name }}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <component :is="currentComponent"></component>
+        </main>
+        
+        <div class="chatbot">
+            <div class="chat-header" @click="toggleChat">Chatbot</div>
+            <div class="chat-body" v-show="chatOpen">
+                <div v-for="message in chatMessages" :class="message.type">{{ message.text }}</div>
+                <input v-model="chatInput" @keyup.enter="sendMessage" placeholder="Posez une question...">
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

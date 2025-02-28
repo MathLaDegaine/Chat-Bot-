@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histoire-Géo - Seconde Guerre mondiale</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1 @click="changePageAccueil">Exercices Scolaires</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="maths.html">Mathématiques</a></li>
+                    <li><a href="francais.html">Français</a></li>
+                    <li class="active"><a href="histoiregeo.html">Histoire-Géo</a></li>
+                    <li><a href="anglais.html">Anglais</a></li>
+                    <li><a href="science.html">Science</a></li>
+                    <li class="profil"><a href="profil.html">Profil</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div id="histoiregeo">
+                <h2>Histoire : La Seconde Guerre mondiale</h2>
+                
+                <p>La Seconde Guerre mondiale a eu lieu entre **1939 et 1945** et a opposé les Alliés aux forces de l'Axe.</p>
+
+                <h3>1. Le Déclenchement de la Guerre</h3>
+                <p>Le conflit commence en **septembre 1939**, lorsque l'Allemagne envahit la Pologne.</p>
+                <img src="images/invasion-pologne.jpg" alt="Invasion de la Pologne en 1939">
+                
+                <h3>2. La Bataille de Stalingrad (1942-1943)</h3>
+                <p>Un tournant de la guerre : l'armée allemande subit une lourde défaite face à l'Union soviétique.</p>
+                <img src="images/stalingrad.jpg" alt="Bataille de Stalingrad">
+
+                <h3>3. Le Débarquement en Normandie (1944)</h3>
+                <p>Le **6 juin 1944**, les troupes alliées débarquent en France pour libérer l'Europe de l'occupation nazie.</p>
+                <img src="images/debarquement.jpg" alt="Débarquement en Normandie">
+
+                <h3>📜 Questions</h3>
+                <p>1. En quelle année la Seconde Guerre mondiale a-t-elle commencé ?</p>
+                <input type="number" v-model="userAnswer1" placeholder="Votre réponse">
+                <button @click="checkAnswer1">Vérifier</button>
+                <p v-if="feedback1" :class="{ correct: isCorrect1, incorrect: !isCorrect1 }">{{ feedback1 }}</p>
+
+                <p>2. Quelle bataille a marqué le tournant de la guerre sur le front de l'Est ?</p>
+                <input type="text" v-model="userAnswer2" placeholder="Votre réponse">
+                <button @click="checkAnswer2">Vérifier</button>
+                <p v-if="feedback2" :class="{ correct: isCorrect2, incorrect: !isCorrect2 }">{{ feedback2 }}</p>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
